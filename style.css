@@ -1,183 +1,106 @@
-/* --- CONFIGURAÇÕES GERAIS --- */
 :root {
-    /* Paleta de cores baseada na imagem: Creme e Rosé */
-    --bg-cream: #fdfaf5; /* Fundo geral creme claro */
-    --bg-hero: #f7e8e8;  /* Fundo do banner rosé claro */
-    --text-dark: #5a3f3f; /* Texto marrom rosé escuro */
-    --accent-gold: #d4a373; /* Dourado suave para detalhes */
+    --bg-cream: #fdfaf5;
+    --text-dark: #5a3f3f;
+    --accent-gold: #d4a373;
+    --rosé-soft: #a66a6a;
     --white: #ffffff;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    font-family: 'Jost', sans-serif; /* Fonte para texto corrido */
+    font-family: 'Jost', sans-serif;
     background-color: var(--bg-cream);
     color: var(--text-dark);
-    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: 0.3s ease;
-}
-
-/* --- CABEÇALHO (NAVBAR) --- */
+/* NAVBAR MELHORADA */
 header {
-    background-color: rgba(253, 250, 245, 0.95); /* Creme com leve transparência */
-    padding: 15px 0;
+    background-color: rgba(253, 250, 245, 0.98);
+    padding: 10px 0;
     position: fixed;
-    top: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    transition: all 0.4s ease;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+.logo-img { height: 75px; width: auto; transition: transform 0.3s ease; }
+.logo-img:hover { transform: scale(1.05); }
 
-.logo-img {
-    height: 60px; /* Ajuste o tamanho do seu logo */
-    width: auto;
-}
+.nav-links { display: flex; gap: 30px; list-style: none; }
+.nav-links a { font-weight: 500; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+.nav-links a:hover { color: var(--accent-gold); }
 
-.nav-links {
-    display: flex;
-    gap: 25px;
-    list-style: none;
-}
-
-.nav-links a {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--text-dark);
-}
-
-.nav-links a:hover {
-    color: var(--accent-gold);
-}
-
-/* --- SEÇÃO HERO (BANNER COM O FUNDO ARTÍSTICO) --- */
+/* HERO SECTION - DIMENSIONAMENTO DA FOTO CENTRAL */
 .hero {
-    /* IMPORTANTE: Usando o seu arquivo exato site.jpg.jpeg */
-    background: linear-gradient(rgba(247, 232, 232, 0.7), rgba(247, 232, 232, 0.7)), 
+    /* Usando site.jpg.jpeg do seu repositório */
+    background: linear-gradient(rgba(253, 250, 245, 0.4), rgba(253, 250, 245, 0.4)), 
                 url('site.jpg.jpeg');
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh; /* Ocupa a altura inteira da tela */
+    background-size: contain; /* Garante que a foto central apareça inteira sem cortes */
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    min-height: 90vh;
     display: flex;
     align-items: center;
-    padding-top: 100px; /* Espaço para o menu fixo */
-}
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Centralizado como na referência */
-    text-align: center;
-    justify-items: center;
-}
-
-.hero-content {
-    max-width: 700px;
+    justify-content: center;
+    padding-top: 80px;
+    background-color: #f7e8e8; /* Fundo reserva caso a imagem demore a carregar */
 }
 
 .hero-title {
-    font-family: 'Cormorant Garamond', serif; /* Fonte elegante para títulos */
-    font-size: 4rem;
-    font-weight: 600;
-    color: var(--text-dark);
-    line-height: 1.1;
-    margin-bottom: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    line-height: 1;
+    margin-bottom: 15px;
+    animation: fadeInDown 1.2s ease;
 }
 
-.hero-title em {
-    font-style: italic;
-    color: var(--accent-gold);
-}
-
-.hero-subtitle {
-    font-size: 1.2rem;
-    font-weight: 300;
-    margin-bottom: 40px;
-    color: var(--text-dark);
-}
-
-/* Botão Rosé */
 .btn-primary {
-    display: inline-block;
-    background-color: #a66a6a; /* Tom rosé mais forte do botão */
+    background-color: var(--rosé-soft);
     color: var(--white);
-    padding: 15px 35px;
-    border-radius: 5px;
+    padding: 18px 45px;
+    border-radius: 50px; /* Botão mais arredondado e moderno */
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(166, 106, 106, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
 }
 
 .btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(166, 106, 106, 0.3);
     background-color: #8e5a5a;
-    transform: translateY(-2px);
 }
 
-/* --- SEÇÃO DE CARTÕES (INFERIOR) --- */
-.cards-section {
-    padding: 60px 0;
-    background-color: var(--bg-cream);
-}
-
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
-    gap: 30px;
-}
+/* CARTÕES COM TRANSIÇÃO */
+.cards-section { padding: 80px 0; }
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
 
 .card-item {
-    background-color: var(--white);
-    padding: 30px;
-    border-radius: 10px;
-    border: 1px solid rgba(166, 106, 106, 0.1);
+    background: var(--white);
+    padding: 50px 30px;
+    border-radius: 20px;
     text-align: center;
-    transition: 0.3s;
-}
-
-.card-item a {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-dark);
+    border: 1px solid rgba(166, 106, 106, 0.1);
+    transition: all 0.5s ease;
 }
 
 .card-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border-color: rgba(166, 106, 106, 0.3);
+    background: #fffafa;
+    border-color: var(--accent-gold);
+    transform: scale(1.03);
 }
 
-/* --- RODAPÉ --- */
-footer {
-    padding: 30px 0;
-    text-align: center;
-    font-size: 0.85rem;
-    color: #8a6670;
-    border-top: 1px solid rgba(166, 106, 106, 0.1);
+.card-item a { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; }
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- RESPONSIVIDADE (PARA CELULAR) --- */
 @media (max-width: 768px) {
-    .hero-title { font-size: 2.8rem; }
-    .nav-links { display: none; } /* Esconde o menu no celular para simplificar */
-    .cards-grid { grid-template-columns: 1fr; } /* Cartões empilhados */
+    .hero { background-size: cover; min-height: 70vh; }
+    .hero-title { font-size: 2.5rem; }
 }
