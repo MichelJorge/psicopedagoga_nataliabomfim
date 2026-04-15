@@ -1,136 +1,183 @@
+/* --- CONFIGURAÇÕES GERAIS --- */
 :root {
-  --primary-color: #a66a6a; /* Tom rosé extraído do logo */
-  --secondary-color: #f9f4f0; /* Creme de fundo harmonizado */
-  --accent-color: #d4a373; /* Dourado suave para detalhes */
-  --text-dark: #4a3f3f;
-  --white: #ffffff;
+    /* Paleta de cores baseada na imagem: Creme e Rosé */
+    --bg-cream: #fdfaf5; /* Fundo geral creme claro */
+    --bg-hero: #f7e8e8;  /* Fundo do banner rosé claro */
+    --text-dark: #5a3f3f; /* Texto marrom rosé escuro */
+    --accent-gold: #d4a373; /* Dourado suave para detalhes */
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--secondary-color);
-  color: var(--text-dark);
-  margin: 0;
-  overflow-x: hidden;
-}
-
-h1, h2, .logo-link {
-  font-family: 'Instrument Serif', serif;
-}
-
-/* Header & Logo */
-header {
-  padding: 1rem 0;
-  background: rgba(249, 244, 240, 0.95); /* Leve transparência */
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    font-family: 'Jost', sans-serif; /* Fonte para texto corrido */
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    line-height: 1.6;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.main-logo {
-  height: 80px; /* Tamanho otimizado para o logo Natália Bomfim */
-  width: auto;
-  display: block;
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s ease;
 }
 
-/* Hero Section com o Fundo Artístico Corrigido */
+/* --- CABEÇALHO (NAVBAR) --- */
+header {
+    background-color: rgba(253, 250, 245, 0.95); /* Creme com leve transparência */
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 60px; /* Ajuste o tamanho do seu logo */
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.nav-links a:hover {
+    color: var(--accent-gold);
+}
+
+/* --- SEÇÃO HERO (BANNER COM O FUNDO ARTÍSTICO) --- */
 .hero {
-  /* Ajustado para o nome exato no seu repositório: site.jpg.jpeg */
-  background: linear-gradient(rgba(249, 244, 240, 0.75), rgba(249, 244, 240, 0.75)), 
-              url('site.jpg.jpeg'); 
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* Efeito suave ao rolar */
-  padding: 140px 0;
-  text-align: center;
+    /* IMPORTANTE: Usando o seu arquivo exato site.jpg.jpeg */
+    background: linear-gradient(rgba(247, 232, 232, 0.7), rgba(247, 232, 232, 0.7)), 
+                url('site.jpg.jpeg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Ocupa a altura inteira da tela */
+    display: flex;
+    align-items: center;
+    padding-top: 100px; /* Espaço para o menu fixo */
 }
 
-.hero h1 {
-  font-size: 3.8rem;
-  color: var(--primary-color);
-  margin: 1.5rem 0;
-  line-height: 1.1;
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Centralizado como na referência */
+    text-align: center;
+    justify-items: center;
 }
 
-.tag {
-  background: var(--white);
-  color: var(--primary-color);
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+.hero-content {
+    max-width: 700px;
 }
 
-/* Botões */
+.hero-title {
+    font-family: 'Cormorant Garamond', serif; /* Fonte elegante para títulos */
+    font-size: 4rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-title em {
+    font-style: italic;
+    color: var(--accent-gold);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 40px;
+    color: var(--text-dark);
+}
+
+/* Botão Rosé */
 .btn-primary {
-  background-color: var(--primary-color);
-  color: var(--white);
-  padding: 18px 40px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  display: inline-block;
-  box-shadow: 0 6px 20px rgba(166, 106, 106, 0.3);
+    display: inline-block;
+    background-color: #a66a6a; /* Tom rosé mais forte do botão */
+    color: var(--white);
+    padding: 15px 35px;
+    border-radius: 5px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(166, 106, 106, 0.3);
 }
 
 .btn-primary:hover {
-  background-color: #8e5a5a;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(166, 106, 106, 0.4);
+    background-color: #8e5a5a;
+    transform: translateY(-2px);
 }
 
-/* Seção Sobre */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-  padding: 100px 0;
+/* --- SEÇÃO DE CARTÕES (INFERIOR) --- */
+.cards-section {
+    padding: 60px 0;
+    background-color: var(--bg-cream);
 }
 
-.photo-frame {
-  border: 2px solid var(--primary-color);
-  padding: 20px;
-  border-radius: 30px;
-  background: var(--white);
-  position: relative;
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+    gap: 30px;
 }
 
-/* Serviços */
-.section-alt {
-  background-color: var(--white);
-  padding: 80px 0;
+.card-item {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(166, 106, 106, 0.1);
+    text-align: center;
+    transition: 0.3s;
 }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
+.card-item a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
 }
 
-.service-card {
-  background: var(--secondary-color);
-  padding: 45px;
-  border-radius: 25px;
-  border-bottom: 5px solid var(--primary-color);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.card-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-color: rgba(166, 106, 106, 0.3);
 }
 
-.service-card:hover {
-  transform: translateY(-15px);
-  background: var(--white);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+/* --- RODAPÉ --- */
+footer {
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #8a6670;
+    border-top: 1px solid rgba(166, 106, 106, 0.1);
+}
+
+/* --- RESPONSIVIDADE (PARA CELULAR) --- */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.8rem; }
+    .nav-links { display: none; } /* Esconde o menu no celular para simplificar */
+    .cards-grid { grid-template-columns: 1fr; } /* Cartões empilhados */
 }
