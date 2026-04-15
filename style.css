@@ -34,7 +34,7 @@ header {
 /* Hero Section com o Fundo Artístico */
 .hero {
   background: linear-gradient(rgba(249, 244, 240, 0.7), rgba(249, 244, 240, 0.7)), 
-              url('site.jpg'); /* Nome da imagem artística enviada */
+              url('site.jpg.jpeg'); /* Nome da imagem artística enviada */
   background-size: cover;
   background-position: center;
   padding: 120px 0;
