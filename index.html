@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -28,24 +29,24 @@
     </header>
 
     <section id="inicio" class="hero">
-        <div class="container hero-grid">
+        <div class="container hero-grid" data-aos="fade-up" data-aos-duration="1500">
             <div class="hero-content">
                 <h1 class="hero-title">Natália Bomfim<br><em>Psicopedagogia</em></h1>
                 <p class="hero-subtitle">Despertando Potenciais através do Aprendizado e Afeto</p>
                 <a href="#contato" class="btn-primary">Agende sua Consulta</a>
             </div>
-            </div>
+        </div>
     </section>
 
     <section class="cards-section">
         <div class="container cards-grid">
-            <div class="card-item">
+            <div class="card-item" data-aos="fade-up" data-aos-delay="100">
                 <a href="#sobre">Quem Sou Eu</a>
             </div>
-            <div class="card-item">
+            <div class="card-item" data-aos="fade-up" data-aos-delay="200">
                 <a href="#servicos">Nossa Abordagem</a>
             </div>
-            <div class="card-item">
+            <div class="card-item" data-aos="fade-up" data-aos-delay="300">
                 <a href="#blog">Últimas do Blog</a>
             </div>
         </div>
@@ -57,5 +58,9 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ once: true });
+    </script>
 </body>
 </html>
